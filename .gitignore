@@ -1,4 +1,8 @@
 api_key
 token.json
 credentials.json
+*.txt
+__pycache__/
+*.log
+*.bk
 
