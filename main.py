@@ -78,7 +78,13 @@ def main():
     prompt_desc_list = prompt.strip().split("\n")
     prompt = "\n".join(prompt_desc_list + base_resume_list)
     logging.debug(prompt)
-
+    logging.info("Build Propmt")
+    prompt_file_name = f"prompt-{str(hash(prompt))}"
+    prompt_file_path = f"{prompt_file_name}.txt"
+    with open(prompt_file_path, "w") as f:
+        f.write(prompt)
+    file_id = drive.upload_to_drive(prompt_file_name, prompt_file_path)
+    logging.info(f"uploaded prompt: {file_id}")
     logging.info("start gerneating response")
     # Print prompt to file for local review
     with open(f"prompt-{str(hash(prompt))}.txt", "w") as f:
@@ -104,7 +110,7 @@ def main():
                 gpt_model=model,
             )
             if model == "gpt-4":
-                time.sleep(5)
+                time.sleep(10)
             message = completion.choices[0].message.content
             logging.debug(completion)
             logging.info(message)
