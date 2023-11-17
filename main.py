@@ -69,7 +69,7 @@ def main():
     p_file_id = os.environ["GOOGLE_DRIVE_PROMPT_FILE_ID"]
     prompt = drive.get_file(p_file_id).decode("utf-8")
     logging.debug(f"prompt: {prompt}")
-    jd_file_id = os.environ["GOOGLE_DRIVE_BASE_RESUME_FILE_ID"]
+    jd_file_id = os.environ["GOOGLE_DRIVE_JOB_DESC_FILE_ID"]
     job_desc = drive.get_file(jd_file_id).decode("utf-8")
     logging.debug(f"job_desc: {job_desc}")
 
