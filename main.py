@@ -1,28 +1,119 @@
-# This code is for v1 of the openai package: pypi.org/project/openai
-from openai import OpenAI
-client = OpenAI()
+import google_drive as drive
+import chatgpt as chatbot
+import os
+import logging
 
-response = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {
-      "role": "system",
-      "content": "You are personal job hunter for me. You are a well seasoned technical recruiter and you will receive a job description and then you will provide me with a tailored resume and cover letter for each role I provide you for review. Your goal is to paint me in the best light possible to get hired!\n\nI will provide you with a base resume to start from and a job description. You will provide me 2 versions of each cover letter and resume. One version will use more casual language and one will have more professional language. \n\nThe tailored cover letter should not be more than 1 page. The tailored resume should not be more than 2 pages. \n\nPreserve all hyper links in the resume, but feel free to change the displayed text. The output should be in a format that will be easy to copy and paste into google docs. \n\nBase Resume:\n\nCALEB D. WOLFE\nCell: (612)-305-8323\nLinkedIn \nGithub \nEmail: caleb.wolfe.public@gmail.com\nSummary:\nResults-oriented Senior Cloud Engineer with 7 years of experience in designing, implementing, and managing scalable cloud infrastructure solutions and continuous improvement efforts. Demonstrated expertise in cloud architecture, automation, and DevOps practices. Proficient in leveraging AWS, Python, Terraform, Kubernetes, among other coding and cloud technologies, to optimize performance, enhance security, and drive cost efficiency. Exhibits strong leadership skills with a proven track record of successfully leading cross-functional teams to deliver complex cloud projects on time and within budget. Seeking a role that challenges my technical skills and leadership abilities to foster business growth through technology and collaboration.\nPROFESSIONAL EXPERIENCE\nLeafLink\nDevOps Engineer\nMay 2022 - Present\nManaged AWS work, including RDS creation for Postgres and MySQL, Redis Cache, EKS clusters, EventBridge, Lambda, S3, new AWS account setup, and SSO configuration.\nRight-sized Redshift Clusters for BI/ETL workloads, leading to significant cost savings.\nHandled K8s work, writing and managing helm charts, implementing GitOps with ArgoCD, monitoring and debugging production clusters, and tuning deployments for resource efficiency.\nSupported applications with code work in Terraform, including creating new AWS and application modules, state manipulation, migrations, and utilizing Atlantis with GitHub Actions for Terraform management.\nGained experience with Python scripting in Django/Flask, Bash scripting, and proficiency with Linux (AWS Linux/CentOS, RedHat, Debian, and Ubuntu), Docker, DockerCompose, and various CI/CD tools.\nTaos, an IBM Company\nDevOps Consultant\nOctober 2020 - May 2022\nFacilitated AWS migrations, cloud infrastructure management via Terraform, and the implementation of CI/CD pipeline automation.\nDesigned and executed Kubernetes work, such as automated Blue/Green deployment strategies and RBAC with AWS IAM.\nDeveloped and improved CI/CD pipelines across multiple platforms, including Jenkins and GitLab, with complex requirements in both Windows and Linux environments.\nWells Fargo (Contract)\nAutomation Engineer\nJuly 2020 - October 2020\nAutomated Ansible Tower usage for internal customers, refactored code, fixed bugs, and implemented automation for governance controls.\nUNFI\nSite Reliability Engineer II\nOctober 2019 - July 2020\nOverhauled an AWS application to recover from a major outage, streamlined GitLab CI/CD automation, and enhanced reliability through automated testing and Ansible automation.\nDelta Air Lines\nDevOps - Service Recovery (Flight Delays and Cancellations)\nJuly 2018 – October 2019\nTransitioned from manual deployment scripts to automated Ansible playbooks, reducing complexity and deployment time for Java Apps and their dependencies.\nTechnical Business Analyst - DevOps Transformation\nJuly 2016 – July 2018\nConducted process improvement research, established Kanban workflows, and facilitated the adoption of Agile methodologies and DevOps tools.\nDeveloper - IT Tools\nJanuary 2016 – July 2016\nCustomized Enterprise products and maintained legacy applications, creating proof-of-concept replacements using modern technologies.\nDeveloper - TechOps Intern\nMay 2015 – November 2015\nDeveloped new app features using Java frameworks and introduced Jenkins for continuous integration.\nBusiness Analyst - Alliances Intern\nJune 2014 – November 2014\nCoordinated B2B schedule file exchanges and developed an IT capabilities dashboard for partner airlines.\nCERTIFICATIONS\nCertified Solutions Architect Associate: Credly Badge \nCertified Terraform Associate: Credly Badge\nCertified Kubernetes Administrator: Credly Badge\nTECHNICAL SKILLS\nCoding: Python, Bash, PowerShell, Node.js, Go, Java\nAutomation/IaC: Kubernetes/Helm, Terraform, CloudFormation/CDK, Ansible, Docker, GitHub Actions, GitLab CI, Jenkins/Groovy, Nginx, Apache HTTP Server\nCloud Providers: AWS, Azure, GCP\nOS: CentOS/RedHat, AWS Linux, Ubuntu, Debian, Windows\nEDUCATION\nComputer Science - Bachelor’s Degree, December 2015, University of Saint Thomas\nLiberal Arts - Associate Degree, May 2013, Minneapolis College (Formerly Minneapolis Community and Technical College)\nAWARDS, AFFILIATIONS, PROJECTS\nBoard of Directors: Minneapolis College Foundation, 2018 - 2019\nPublications: Devops.com, IT Revolution\nProject: LED Sound Reactive Suit (Python and Raspberry Pi) - GitHub Repo , YouTube Link \n\n "
-    },
-    {
-      "role": "user",
-      "content": "\nAbout the job\nTo get the best candidate experience, please consider applying for a maximum of 3 roles within 12 months to ensure you are not duplicating efforts.\n\nJob Category\n\nSoftware Engineering\n\nJob Details\n\nAbout Salesforce\n\nWe’re Salesforce, the Customer Company, inspiring the future of business with AI+ Data +CRM. Leading with our core values, we help companies across every industry blaze new trails and connect with customers in a whole new way. And, we empower you to be a Trailblazer, too — driving your performance and career growth, charting new paths, and improving the state of the world. If you believe in business as the greatest platform for change and in companies doing well and doing good – you’ve come to the right place.\n\nThe Cloud Engineering team is composed of Cloud Engineers, Financial Analysts and AWS Subject Matter Experts, working to make Slack more performant, available & cost-efficient each day. We are constantly perfecting and improving our AWS stance in order to make Slack performant and available to each and every one of our millions of daily active users. We take on unique scaling problems for a global customer base and write software to provide maximum visibility into our cloud infrastructure. We get excited about making Slack scaling, highly available and resilient whilst ensuring we use the right technology stack.\n\nSlack has a positive, diverse, and supportive culture—we look for people who are curious, inventive, and work to be a little better every single day. In our work together we aim to be smart, humble, hardworking and, above all, collaborative. If this sounds like a good fit for you, read on ahead!\n\nWhat you will be doing\n\n    Leading software projects, from start to finish, where the scope is mostly understood\n    Design and develop a new platform to provide our engineering teams a foundation to work and innovate\n    Develop and code cutting edge solutions to deliver the best possible platform leveraging containerization, virtualization and AWS services\n    Writing, enhancing and extending Terraform modules\n    Implementation of a home-grown system to deploy, maintain and scale applications for service owners\n    Proactively build great relationships with service owners with ideas\n    Educate others and provide ideas/tips on how to improve our overall platform efficiency and performance\n    Scaling the impact of our team through direct mentorship of our more junior team members\n    Be responsible for saving millions of dollars every year and keeping our cloud costs under control\n    Participate in our on-call rotation and collaborate with our operations team to triage and resolve production issues\n    Build tools efficiently to allow engineers to identify system bottlenecks\n    Build monitoring and introspection tools efficiently to allow engineers to quickly introspect a system\n\nWhat You Should Have\n\n    Curiosity about how clouds work and love to share that knowledge with others\n    The ability to analyze and optimize reliability in high-traffic internet applications\n    A mentoring mindset and love to model standard methodologies for unit tests, code review, design documentation, debugging, and troubleshooting. You've been developing and operating web sites professionally and can point to things you’ve worked on\n    Hands-on experience with AWS. You have a broad knowledge of many services and a deep knowledge of a few of these services\n    You have deployed applications to the cloud and have used Terraform/Cloudformation to ensure software is deployed as code\n    Ability to troubleshoot and debug issues across infrastructure, applications, and distributed systems\n    Strong problem solving skills\n\nQualifications\n\n    5+ years professional experience in cloud engineering, working in a team environment\n    Bachelor's degree in Computer Science, Engineering or a related field, or equivalent training, fellowship, or work experience\n    Experience with functional or imperative programming languages — e.g., PHP, Python or Go (used without frameworks)\n    Experience with software engineering, scripting, automation and orchestration tools (Bash, Chef, Jenkins, Terraform)\n    Experience provisioning, configuring and maintaining cloud computing services (AWS)\n    Experience managing large K8s systems (EKS or Bare Metal)\n    Experience working with large scale AWS environments\n\nBonus Points\n\n    A domain expert within the AWS ecosystem (EKS / EC2 / IAM / Fargate)\n    AWS professional certification(s)\n    Prior experience with or knowledge of large scale, high volume systems\n    Prior experience reducing cloud costs at scale\n    Comfortable working in a globally distributed team including collaborating across multiple time zones\n\nAccommodations\n\nIf you require assistance due to a disability applying for open positions please submit a request via this Accommodations Request Form.\n\nPosting Statement\n\nAt Salesforce we believe that the business of business is to improve the state of our world. Each of us has a responsibility to drive Equality in our communities and workplaces. We are committed to creating a workforce that reflects society through inclusive programs and initiatives such as equal pay, employee resource groups, inclusive benefits, and more. Learn more about Equality at www.equality.com and explore our company benefits at www.salesforcebenefits.com.\n\nSalesforce is an Equal Employment Opportunity and Affirmative Action Employer. Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender perception or identity, national origin, age, marital status, protected veteran status, or disability status. Salesforce does not accept unsolicited headhunter and agency resumes. Salesforce will not pay any third-party agency or company that does not have a signed agreement with Salesforce.\n\n Salesforce welcomes all. "
-    },
-    {
-      "role": "assistant",
-      "content": "Caleb D. Wolfe\nCell: (612)-305-8323\nLinkedIn\nGithub\nEmail: caleb.wolfe.public@gmail.com\n\n[Date]\n\n[Recruiter's Name]\n[Recruiter's Job Title or Company]\n[Company Name]\n[Company Address]\n[City, State, ZIP Code]\n\nDear [Recruiter's Name],\n\nI am writing to express my interest in the Cloud Engineer position at Salesforce. As a results-oriented Senior Cloud Engineer with 7 years of experience in designing, implementing, and managing scalable cloud infrastructure solutions, I am confident in my ability to contribute to the success of the Cloud Engineering team at Salesforce.\n\nCasual Version:\nI'm thrilled about the opportunity to work at Salesforce and be part of a team that is devoted to making Slack more performant, available, and cost-efficient. With my expertise in AWS, Terraform, and containerization, I can help in developing cutting-edge solutions to deliver the best platform for engineering teams to work and innovate.\n\nProfessional Version:\nI am excited about the opportunity to join Salesforce and contribute to the Cloud Engineering team's mission of making Slack more performant, available, and cost-efficient. With my extensive experience in AWS, Terraform, and containerization, I am confident in"
-    }
-  ],
-  temperature=1,
-  max_tokens=256,
-  top_p=1,
-  frequency_penalty=0,
-  presence_penalty=0
+logging.basicConfig(
+    filename="chatgpt-main.log",
+    encoding="utf-8",
+    level=logging.DEBUG,
+    format="%(asctime)s %(message)s",
 )
+# model = "gpt-3.5-turbo"
 
-print(response)
+
+def main():
+    params_dict_list = [
+        {
+        "param_profile": "standard",
+        # Randomness in the response
+        "temperature": 0.9,
+        # Number of tokens to generate
+        "tokens": 4096,
+        # Sample selction of words
+        "top_p": 0.5,
+        # Penalty for repeating words
+        "frequency_penalty": 1.0,
+        # Penalty for repeating tokens
+        "presence_penalty": 0.6,
+    },
+    {
+        "param_profile": "strict",
+        # Randomness in the response
+        "temperature": 0.25,
+        # Number of tokens to generate
+        "tokens": 4096,
+        # Sample selction of words
+        "top_p": 0.5,
+        # Penalty for repeating words
+        "frequency_penalty": 1.0,
+        # Penalty for repeating tokens
+        "presence_penalty": 0.6,
+    },
+    {
+
+        "param_profile": "flexible",
+        # Randomness in the response
+        "temperature": 1.5,
+        # Number of tokens to generate
+        "tokens": 4096,
+        # Sample selction of words
+        "top_p": 0.5,
+        # Penalty for repeating words
+        "frequency_penalty": 1.0,
+        # Penalty for repeating tokens
+        "presence_penalty": 0.6,
+    }
+
+    
+    ]
+
+    # model = "gpt-4"
+
+    # Get prompt from google drive
+    logging.info("Get Job Description and Resume from Google Drive")
+    logging.info("Get Job Description and Resume from Google Drive")
+    b_file_id = os.environ["GOOGLE_DRIVE_BASE_RESUME_FILE_ID"]
+    base_resume = drive.get_file(b_file_id).decode("utf-8")
+    logging.debug(f"base_resume: {base_resume}")
+    p_file_id = os.environ["GOOGLE_DRIVE_PROMPT_FILE_ID"]
+    prompt = drive.get_file(p_file_id).decode("utf-8")
+    logging.debug(f"prompt: {prompt}")
+    jd_file_id = os.environ["GOOGLE_DRIVE_BASE_RESUME_FILE_ID"]
+    job_desc = drive.get_file(jd_file_id).decode("utf-8")
+    logging.debug(f"job_desc: {job_desc}")
+
+    logging.info("Build Propmt")
+    base_resume_list = base_resume.strip().split("\n")
+    prompt_desc_list = prompt.strip().split("\n")
+    prompt = "\n".join(prompt_desc_list + base_resume_list)
+    logging.debug(prompt)
+
+    logging.info("start gerneating response")
+    # Print prompt to file for local review
+    with open(f"prompt-{str(hash(prompt))}.txt", "w") as f:
+        f.write(prompt)
+
+    for model in ["gpt-3.5-turbo", "gpt-4"]:
+        prompt_num_tokens = chatbot.get_tokenized_count(prompt, model)
+        logging.debug(f"tokens from prompt: {prompt_num_tokens}")
+        job_num_tokens = chatbot.get_tokenized_count(job_desc, model)
+        logging.debug(f"tokens from job_desc: {job_num_tokens}")
+        total_tokens = prompt_num_tokens + job_num_tokens
+        logging.debug(f"total tokens: {total_tokens}")
+        for params_dict in params_dict_list:
+            logging.info(f"params_dict: {params_dict}")
+            logging.info(f"total_tokens: {total_tokens}")
+            params_dict["tokens"] = total_tokens
+            logging.info(f"params_dict: {params_dict}")
+            params_dict['tokens'] = total_tokens
+            completion = chatbot.get_chatbot_response(
+                prompt,
+                job_desc,
+                params_dict,
+                gpt_model=model,
+            )
+            message = completion.choices[0].message.content
+            logging.debug(completion)
+            logging.info(message)
+            file_name = f"resume-message-{params_dict['param_profile']}-settings-{model}"
+            file_path = f"{file_name}.txt"
+            with open(file_path, "w") as f:
+                f.write(message)
+            file_id = drive.upload_to_drive(file_name, file_path)
+            logging.info(f"uploaded {file_id}")
+            print(message)
+            print(f"uploaded {file_id}")
+
+if __name__ == "__main__":
+    main()
