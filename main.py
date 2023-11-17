@@ -59,7 +59,6 @@ def main():
     
     ]
 
-    # model = "gpt-4"
 
     # Get prompt from google drive
     logging.info("Get Job Description and Resume from Google Drive")
