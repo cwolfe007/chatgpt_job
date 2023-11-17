@@ -2,6 +2,7 @@ import google_drive as drive
 import chatgpt as chatbot
 import os
 import logging
+import time
 
 logging.basicConfig(
     filename="chatgpt-main.log",
@@ -103,6 +104,8 @@ def main():
                 params_dict,
                 gpt_model=model,
             )
+            if model == "gpt-4":
+                time.sleep(5)
             message = completion.choices[0].message.content
             logging.debug(completion)
             logging.info(message)
