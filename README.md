@@ -15,6 +15,7 @@ The program will take the above and give it to chatgpt to get it functioning. In
     - DO NOT SHARE THE  `credentials.json` file
   2. An open ai api key
   3. The following environment variables set, the folder/file ids can be found in the google drive url 
+
     ```
     export OPENAI_API_KEY="<>"
     export GOOGLE_DRIVE_BASE_RESUME_FILE_ID=<google_drive_id>
