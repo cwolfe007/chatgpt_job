@@ -61,8 +61,7 @@ def main():
 
 
     # Get prompt from google drive
-    logging.info("Get Job Description and Resume from Google Drive")
-    logging.info("Get Job Description and Resume from Google Drive")
+    logging.info("Get Job Description, Resume, and Prompt from Google Drive")
     b_file_id = os.environ["GOOGLE_DRIVE_BASE_RESUME_FILE_ID"]
     base_resume = drive.get_file(b_file_id).decode("utf-8")
     logging.debug(f"base_resume: {base_resume}")
@@ -109,8 +108,9 @@ def main():
                 params_dict,
                 gpt_model=model,
             )
+            # API only allows 10000 tokens per request per minute
             if model == "gpt-4":
-                time.sleep(10)
+                time.sleep(60)
             message = completion.choices[0].message.content
             logging.debug(completion)
             logging.info(message)
