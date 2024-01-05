@@ -18,7 +18,7 @@ def main():
         {
         "param_profile": "standard",
         # Randomness in the response
-        "temperature": 0.9,
+        "temperature": 1.5,
         # Number of tokens to generate
         "tokens": 4096,
         # Sample selction of words
@@ -31,7 +31,7 @@ def main():
     {
         "param_profile": "strict",
         # Randomness in the response
-        "temperature": 0.25,
+        "temperature": 1.75,
         # Number of tokens to generate
         "tokens": 4096,
         # Sample selction of words
@@ -45,7 +45,7 @@ def main():
 
         "param_profile": "flexible",
         # Randomness in the response
-        "temperature": 1.5,
+        "temperature": 2.0,
         # Number of tokens to generate
         "tokens": 4096,
         # Sample selction of words
@@ -56,7 +56,7 @@ def main():
         "presence_penalty": 0.6,
     }
 
-    
+
     ]
 
 
