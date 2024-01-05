@@ -8,7 +8,9 @@ This code is meant to read files from google drive to prompt chatgpt to produce 
   2. A base resume/list experiences that chatgpt will use to generate a resume from
   3. A job description to feed chatgpt. 
 
-The program will take the above and give it to chatgpt to get it functioning. In order to have the code function you will need the prerequisites below.
+The program will take the above and give it to chatgpt. Chatgpt then takes the prompt, your resume, and a given job description and will generate several resumes with different models of chatgpt. 
+
+In order to have the code function you will need the prerequisites below.
 
   1. A google app that you will use to access google drive TODO: add instructions link
     - With the app you will download the `credentials.json` and put it in this directory
