@@ -55,20 +55,20 @@ def main():
         # Penalty for repeating tokens
         "presence_penalty": 0.6,
     },
-    {
-
-        "param_profile": "flexible-maxed",
-        # Randomness in the response
-        "temperature": 2.0,
-        # Number of tokens to generate
-        "tokens": 4096,
-        # Sample selction of words
-        "top_p": 1.0,
-        # Penalty for repeating words
-        "frequency_penalty": 1.0,
-        # Penalty for repeating tokens
-        "presence_penalty": 1.0,
-    }
+    # {
+    #
+    #     "param_profile": "flexible-maxed",
+    #     # Randomness in the response
+    #     "temperature": 2.0,
+    #     # Number of tokens to generate
+    #     "tokens": 4096,
+    #     # Sample selction of words
+    #     "top_p": 1.0,
+    #     # Penalty for repeating words
+    #     "frequency_penalty": 1.0,
+    #     # Penalty for repeating tokens
+    #     "presence_penalty": 1.0,
+    # }
 
 
     ]
