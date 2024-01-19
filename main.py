@@ -16,63 +16,59 @@ logging.basicConfig(
 def main():
     params_dict_list = [
         {
-        "param_profile": "standard",
-        # Randomness in the response
-        "temperature": 1.5,
-        # Number of tokens to generate
-        "tokens": 4096,
-        # Sample selction of words
-        "top_p": 0.5,
-        # Penalty for repeating words
-        "frequency_penalty": 1.0,
-        # Penalty for repeating tokens
-        "presence_penalty": 0.6,
-    },
-    {
-        "param_profile": "strict",
-        # Randomness in the response
-        "temperature": 1.75,
-        # Number of tokens to generate
-        "tokens": 4096,
-        # Sample selction of words
-        "top_p": 0.5,
-        # Penalty for repeating words
-        "frequency_penalty": 1.0,
-        # Penalty for repeating tokens
-        "presence_penalty": 0.6,
-    },
-    {
-
-        "param_profile": "flexible",
-        # Randomness in the response
-        "temperature": 2.0,
-        # Number of tokens to generate
-        "tokens": 4096,
-        # Sample selction of words
-        "top_p": 0.5,
-        # Penalty for repeating words
-        "frequency_penalty": 1.0,
-        # Penalty for repeating tokens
-        "presence_penalty": 0.6,
-    },
-    # {
-    #
-    #     "param_profile": "flexible-maxed",
-    #     # Randomness in the response
-    #     "temperature": 2.0,
-    #     # Number of tokens to generate
-    #     "tokens": 4096,
-    #     # Sample selction of words
-    #     "top_p": 1.0,
-    #     # Penalty for repeating words
-    #     "frequency_penalty": 1.0,
-    #     # Penalty for repeating tokens
-    #     "presence_penalty": 1.0,
-    # }
-
-
+            "param_profile": "standard",
+            # Randomness in the response
+            "temperature": 1.5,
+            # Number of tokens to generate
+            "tokens": 4096,
+            # Sample selction of words
+            "top_p": 0.5,
+            # Penalty for repeating words
+            "frequency_penalty": 1.0,
+            # Penalty for repeating tokens
+            "presence_penalty": 0.6,
+        },
+        {
+            "param_profile": "strict",
+            # Randomness in the response
+            "temperature": 1.75,
+            # Number of tokens to generate
+            "tokens": 4096,
+            # Sample selction of words
+            "top_p": 0.5,
+            # Penalty for repeating words
+            "frequency_penalty": 1.0,
+            # Penalty for repeating tokens
+            "presence_penalty": 0.6,
+        },
+        {
+            "param_profile": "flexible",
+            # Randomness in the response
+            "temperature": 2.0,
+            # Number of tokens to generate
+            "tokens": 4096,
+            # Sample selction of words
+            "top_p": 0.5,
+            # Penalty for repeating words
+            "frequency_penalty": 1.0,
+            # Penalty for repeating tokens
+            "presence_penalty": 0.6,
+        },
+        # {
+        #
+        #     "param_profile": "flexible-maxed",
+        #     # Randomness in the response
+        #     "temperature": 2.0,
+        #     # Number of tokens to generate
+        #     "tokens": 4096,
+        #     # Sample selction of words
+        #     "top_p": 1.0,
+        #     # Penalty for repeating words
+        #     "frequency_penalty": 1.0,
+        #     # Penalty for repeating tokens
+        #     "presence_penalty": 1.0,
+        # }
     ]
-
 
     # Get prompt from google drive
     logging.info("Get Job Description, Resume, and Prompt from Google Drive")
@@ -103,7 +99,8 @@ def main():
     with open(f"prompt-{str(hash(prompt))}.txt", "w") as f:
         f.write(prompt)
 
-    for model in ["gpt-3.5-turbo", "gpt-4"]:
+    for model in ["gpt-4"]:
+        # for model in ["gpt-3.5-turbo", "gpt-4"]:
         prompt_num_tokens = chatbot.get_tokenized_count(prompt, model)
         logging.debug(f"tokens from prompt: {prompt_num_tokens}")
         job_num_tokens = chatbot.get_tokenized_count(job_desc, model)
@@ -115,7 +112,7 @@ def main():
             logging.info(f"total_tokens: {total_tokens}")
             params_dict["tokens"] = total_tokens
             logging.info(f"params_dict: {params_dict}")
-            params_dict['tokens'] = total_tokens
+            params_dict["tokens"] = total_tokens
             completion = chatbot.get_chatbot_response(
                 prompt,
                 job_desc,
@@ -128,7 +125,9 @@ def main():
             message = completion.choices[0].message.content
             logging.debug(completion)
             logging.info(message)
-            file_name = f"resume-message-{params_dict['param_profile']}-settings-{model}"
+            file_name = (
+                f"resume-message-{params_dict['param_profile']}-settings-{model}"
+            )
             file_path = f"{file_name}.txt"
             with open(file_path, "w") as f:
                 f.write(message)
@@ -136,6 +135,7 @@ def main():
             logging.info(f"uploaded {file_id}")
             print(message)
             print(f"uploaded {file_id}")
+
 
 if __name__ == "__main__":
     main()
