@@ -22,7 +22,7 @@ def main():
             # Number of tokens to generate
             "tokens": 4096,
             # Sample selction of words
-            "top_p": 0.5,
+            "top_p": 0.8,
             # Penalty for repeating words
             "frequency_penalty": 1.0,
             # Penalty for repeating tokens
@@ -35,7 +35,7 @@ def main():
             # Number of tokens to generate
             "tokens": 4096,
             # Sample selction of words
-            "top_p": 0.5,
+            "top_p": 0.8,
             # Penalty for repeating words
             "frequency_penalty": 1.0,
             # Penalty for repeating tokens
@@ -48,7 +48,7 @@ def main():
             # Number of tokens to generate
             "tokens": 4096,
             # Sample selction of words
-            "top_p": 0.5,
+            "top_p": 0.8,
             # Penalty for repeating words
             "frequency_penalty": 1.0,
             # Penalty for repeating tokens
