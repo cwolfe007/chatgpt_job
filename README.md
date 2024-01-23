@@ -1,5 +1,5 @@
 # chatgpt_job
-Repo for looking up jobs via OpenAIs chat gpt
+Tailors Resumes for job descriptions using chatgpt
 
 # How this works at a high level
 
