@@ -16,32 +16,6 @@ logging.basicConfig(
 def main():
     params_dict_list = [
         {
-            "param_profile": "standard",
-            # Randomness in the response
-            "temperature": 1.5,
-            # Number of tokens to generate
-            "tokens": 4096,
-            # Sample selction of words
-            "top_p": 0.8,
-            # Penalty for repeating words
-            "frequency_penalty": 1.0,
-            # Penalty for repeating tokens
-            "presence_penalty": 0.6,
-        },
-        {
-            "param_profile": "strict",
-            # Randomness in the response
-            "temperature": 1.75,
-            # Number of tokens to generate
-            "tokens": 4096,
-            # Sample selction of words
-            "top_p": 0.8,
-            # Penalty for repeating words
-            "frequency_penalty": 1.0,
-            # Penalty for repeating tokens
-            "presence_penalty": 0.6,
-        },
-        {
             "param_profile": "flexible",
             # Randomness in the response
             "temperature": 2.0,
@@ -53,21 +27,7 @@ def main():
             "frequency_penalty": 1.0,
             # Penalty for repeating tokens
             "presence_penalty": 0.6,
-        },
-        # {
-        #
-        #     "param_profile": "flexible-maxed",
-        #     # Randomness in the response
-        #     "temperature": 2.0,
-        #     # Number of tokens to generate
-        #     "tokens": 4096,
-        #     # Sample selction of words
-        #     "top_p": 1.0,
-        #     # Penalty for repeating words
-        #     "frequency_penalty": 1.0,
-        #     # Penalty for repeating tokens
-        #     "presence_penalty": 1.0,
-        # }
+        }
     ]
 
     # Get prompt from google drive
