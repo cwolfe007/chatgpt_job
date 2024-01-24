@@ -1,5 +1,7 @@
 # chatgpt_job
+
 Tailors Resumes for job descriptions using chatgpt
+
 
 # How this works at a high level
 
