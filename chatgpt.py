@@ -49,8 +49,7 @@ if __name__ == "__main__":
         "frequency_penalty": 1.0,
         "presence_penalty": 0.6,
     }
-    model = "gpt-3.5-turbo"
-    # model = "gpt-4"
+    model = "gpt-4"
     with open("test_job_desc.txt", "r") as f:
         job_desc = f.read()
     with open("chatgpt_prompt.txt", "r") as f:
@@ -60,7 +59,6 @@ if __name__ == "__main__":
         base_resume_list = base_resume.strip().split("\n")
         prompt_desc_list = prompt_desc.strip().split("\n")
         prompt = "\n".join(prompt_desc_list + base_resume_list)
-        # prompt = "You are a story teller, create a story from the given topic."
 
         logging.debug(prompt)
 
