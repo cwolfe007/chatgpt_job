@@ -5,8 +5,6 @@ import logging
 import google_drive as drive
 
 
-
-
 def get_tokenized_count(prompt, gpt_model):
     encoding = tiktoken.encoding_for_model(gpt_model)
     num_tokens = len(encoding.encode(prompt))
@@ -43,7 +41,7 @@ def get_chatbot_response(prompt, job_desc, params_dict, gpt_model="gpt-4"):
 if __name__ == "__main__":
     import os
     import google_drive as drive
-    
+
     params_dict = {
         "temperature": 0.9,
         "tokens": 4096,
@@ -73,7 +71,7 @@ if __name__ == "__main__":
         logging.debug(f"tokens from prompt: {prompt_num_tokens}")
         job_num_tokens = get_tokenized_count(job_desc, model)
         logging.debug(f"tokens from job_desc: {job_num_tokens}")
-        params_dict["tokens"] = prompt_num_tokens + job_num_tokens  + 11
+        params_dict["tokens"] = prompt_num_tokens + job_num_tokens + 11
         logging.debug(f"total tokens: {params_dict['tokens']}")
         completion = get_chatbot_response(
             prompt,
