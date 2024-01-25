@@ -16,6 +16,7 @@ logging.basicConfig(
 def main():
     params_dict_list = [
         {
+<<<<<<< HEAD
             "param_profile": "standard",
             # Randomness in the response
             "temperature": 0.9,
@@ -45,6 +46,11 @@ def main():
             "param_profile": "flexible",
             # Randomness in the response
             "temperature": 1.5,
+=======
+            "param_profile": "flexible",
+            # Randomness in the response
+            "temperature": 2.0,
+>>>>>>> 6ffcda84405686f1c04491243acded0399dc37f1
             # Number of tokens to generate
             "tokens": 4096,
             # Sample selction of words
@@ -53,7 +59,11 @@ def main():
             "frequency_penalty": 1.0,
             # Penalty for repeating tokens
             "presence_penalty": 0.6,
+<<<<<<< HEAD
         },
+=======
+        }
+>>>>>>> 6ffcda84405686f1c04491243acded0399dc37f1
     ]
 
     # Get prompt from google drive
@@ -85,7 +95,8 @@ def main():
     with open(f"prompt-{str(hash(prompt))}.txt", "w") as f:
         f.write(prompt)
 
-    for model in ["gpt-3.5-turbo", "gpt-4"]:
+    for model in ["gpt-4"]:
+        # for model in ["gpt-3.5-turbo", "gpt-4"]:
         prompt_num_tokens = chatbot.get_tokenized_count(prompt, model)
         logging.debug(f"tokens from prompt: {prompt_num_tokens}")
         job_num_tokens = chatbot.get_tokenized_count(job_desc, model)

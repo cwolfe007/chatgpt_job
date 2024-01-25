@@ -98,3 +98,13 @@ def get_creds():
 def get_drive_service():
     creds = get_creds()
     return build("drive", "v3", credentials=creds)
+<<<<<<< HEAD
+=======
+
+
+if __name__ == "__main__":
+    #   get_base_resume("")
+    print(
+        f"file uplaoded {upload_to_drive('chatgpt-8388924832558744059-message', 'chatgpt-8388924832558744059-message.txt')}"
+    )
+>>>>>>> 6ffcda84405686f1c04491243acded0399dc37f1
