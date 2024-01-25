@@ -1,6 +1,8 @@
 # chatgpt_job
 Repo for generating resumes with chatgpt. The goal of this repo is to provide all users of this code base with the opprotunity to put their best foot forward and increase the quality of their applications while filling out applications faster.
 
+
+
 # How this works at a high level
 
 This code is meant to read files from google drive to prompt chatgpt to produce resumes tailored to a give job description. So to get this to work you will need 
