@@ -93,7 +93,7 @@ All necessary environment variables are listed in the `env.example.yaml` file. C
 To run the script, ensure your `env.yaml` is configured correctly, then execute:
 
 ```bash
-python3 main.py
+poetry run python main.py
 ```
 
 ## Contributing
