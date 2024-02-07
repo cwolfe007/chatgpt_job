@@ -6,3 +6,6 @@ __pycache__/
 *.log
 *.bk
 env_vars* 
+env.yaml
+logs/
+.DS_Store

@@ -3,17 +3,18 @@ import chatgpt as chatbot
 import os
 import logging
 import time
-
-logging.basicConfig(
-    filename="chatgpt-main.log",
-    encoding="utf-8",
-    level=logging.DEBUG,
-    format="%(asctime)s %(message)s",
-)
-# model = "gpt-3.5-turbo"
-
+from config_loader import init_env
+from datetime import datetime
+from logger_config import init_logger
 
 def main():
+    
+    # initialize env variables
+    init_env()
+
+    # Initialize the logger
+    init_logger()
+
     params_dict_list = [
         {
             "param_profile": "flexible",
