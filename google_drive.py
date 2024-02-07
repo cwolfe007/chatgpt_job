@@ -9,17 +9,18 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseDownload, MediaFileUpload
 
-google_drive_folder_id = os.environ["GOOGLE_DRIVE_FOLDER_ID"]
-
 # If modifying these scopes, delete the file token.json.
 SCOPES = [
     "https://www.googleapis.com/auth/drive.metadata.readonly",
     "https://www.googleapis.com/auth/drive.readonly",
     "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/documents"
 ]
 
 
 def upload_to_drive(file_name, file_path):
+    google_drive_folder_id = os.environ["GOOGLE_DRIVE_FOLDER_ID"]
+
     try:
         # create drive api client
         service = get_drive_service()
