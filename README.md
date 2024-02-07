@@ -18,7 +18,7 @@ to get started with chatgpt_job, you will need to install dependencies, setup a 
 
 ### Prerequisites
 
-- **Python 3.10 or higher**: Ensure Python 3.10+ is installed on your machine.
+- **Python ~3.10**: Ensure Python ~3.10 is installed on your machine.
 - **Poetry**: This project uses the Poetry CLI to manage dependencies.
 
 ### Installing Poetry and Project Dependencies
